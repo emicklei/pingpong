@@ -1,0 +1,19 @@
+
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+#canvas-content {
+  position: fixed;
+  top: 50px;
+  bottom: 20px;
+  left: 10px;
+  right: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}

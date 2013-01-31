@@ -1,0 +1,43 @@
+package pingpong
+
+import (
+	fs "bitbucket.org/emicklei/firespark"
+)
+
+type ball struct {
+	x, y, dx, dy float64
+}
+
+func (b *ball) bounceX() { b.dx = b.dx * -1 }
+func (b *ball) bounceY() { b.dy = b.dy * -1 }
+func (b ball) equals(o ball) bool {
+	return b.x == o.x && b.y == o.y && b.dx == o.dx && b.dy == o.dy
+}
+
+func (b ball) isInside(bounds fs.Rectangle) bool {
+	return b.x >= bounds.X && b.x <= bounds.Right() && b.y >= bounds.Y && b.y <= bounds.Bottom()
+}
+
+func (b *ball) moveIn(bounds fs.Rectangle) {
+	// pre: dx < bounds.w && dy < bounds.h
+	nx := b.x + b.dx
+	if nx > bounds.Right() { // right of bounds
+		nx = 2*bounds.Right() - nx
+		b.bounceX()
+	}
+	if nx < bounds.X { // left of bounds
+		nx = 2*bounds.X + nx
+		b.bounceX()
+	}
+	b.x = nx
+	ny := b.y + b.dy
+	if ny > bounds.Bottom() { // below bounds
+		ny = 2*bounds.Bottom() - ny
+		b.bounceY()
+	}
+	if ny < bounds.y { // above bounds
+		ny = 2*bounds.Y + ny
+		b.bounceY()
+	}
+	b.y = ny
+}

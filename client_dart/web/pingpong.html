@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Pingpong</title>
+  <link rel="stylesheet" href="pingpong.css">
+</head>
+<body>
+  <div>
+    <button id="buttonStart">Start</button> 
+    <button id="buttonBall">New Ball</button>
+    <span id="gameMsg"></span>
+    <div style="float: right; min-width: 250px;">
+      WS Status: <span id="wsStatus">none</span>
+    </div>
+  </div>
+
+  <div id="canvas-content"></div>
+
+  <script type="application/dart" src="pingpong.dart"></script>
+  <script src="packages/browser/dart.js"></script>
+</body>
+</html>
