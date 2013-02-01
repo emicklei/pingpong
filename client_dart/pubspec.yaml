@@ -1,0 +1,6 @@
+name:  pingpong
+description:  Firespark PingPong Game
+
+dependencies:
+  browser: any
+
